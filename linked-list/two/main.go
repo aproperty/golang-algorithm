@@ -35,10 +35,9 @@ type Node struct {
 
 func Revert(src *Node) (new *Node) {
 
-	newNode := &Node{0, src}
-	cursor := newNode.next
-	newNode.next = nil
+	newNode := &Node{0, nil}
 
+	cursor := src
 	for cursor != nil {
 
 		q := cursor
