@@ -7,30 +7,48 @@ type Node struct {
 	next *Node
 }
 
+// func Revert(src *Node) (new *Node) {
+
+// 	nodeMap := make(map[int]*Node)
+
+// 	nextNode := src
+// 	count := 0
+// 	nodeMap[count] = nextNode
+
+// 	for {
+// 		if nextNode.next != nil {
+// 			nextNode = nextNode.next
+// 			count += 1
+// 			nodeMap[count] = nextNode
+// 		} else {
+// 			break
+// 		}
+// 	}
+
+// 	for n := count; n > 0; n-- {
+// 		nodeMap[n].next = nodeMap[n-1]
+// 	}
+// 	nodeMap[0].next = nil
+
+// 	return nodeMap[count]
+// }
+
 func Revert(src *Node) (new *Node) {
 
-	nodeMap := make(map[int]*Node)
+	newNode := &Node{0, src}
+	cursor := newNode.next
+	newNode.next = nil
 
-	nextNode := src
-	count := 0
-	nodeMap[count] = nextNode
+	for cursor != nil {
 
-	for {
-		if nextNode.next != nil {
-			nextNode = nextNode.next
-			count += 1
-			nodeMap[count] = nextNode
-		} else {
-			break
-		}
+		q := cursor
+		cursor = cursor.next
+
+		q.next = newNode.next
+		newNode.next = q
 	}
 
-	for n := count; n > 0; n-- {
-		nodeMap[n].next = nodeMap[n-1]
-	}
-	nodeMap[0].next = nil
-
-	return nodeMap[count]
+	return newNode.next
 }
 
 func PrintLinkNode(node *Node) {
