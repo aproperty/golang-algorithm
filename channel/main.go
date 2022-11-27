@@ -5,6 +5,8 @@ import (
 	"time"
 )
 
+// 接收一个字符串参数，使用两个协程按顺序交替输出每个字符。
+// 利用无缓冲通道的阻塞特性
 func printStr(s string) {
 
 	ch1 := make(chan int)
@@ -29,8 +31,6 @@ func printStr(s string) {
 
 }
 
-// 实现一个函数，功能：接收一个字符串参数，使用两个协程 按顺序 交替 输入 每个字符。
-// 思路：利用 无缓冲通道 的 阻塞特性
 func main() {
 	printStr("hello,world")
 	time.Sleep(time.Second)
