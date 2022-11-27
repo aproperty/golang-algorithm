@@ -3,6 +3,7 @@ package sort
 func QuickSort(arr []int64, start, end int) {
 
 	if start < end {
+
 		i, j := start, end
 		key := arr[(start+end)/2]
 
@@ -13,6 +14,7 @@ func QuickSort(arr []int64, start, end int) {
 			for arr[j] > key {
 				j--
 			}
+
 			if i <= j {
 				arr[i], arr[j] = arr[j], arr[i]
 				i++
@@ -23,9 +25,10 @@ func QuickSort(arr []int64, start, end int) {
 		if start < j {
 			QuickSort(arr, start, j)
 		}
-		if end > i {
+		if i < end {
 			QuickSort(arr, i, end)
 		}
+
 	}
 
 }
