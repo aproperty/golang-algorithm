@@ -1,1 +1,1 @@
-# golang-code
+# golang-algorithm
