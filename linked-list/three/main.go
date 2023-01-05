@@ -13,6 +13,7 @@ func middleNode(head *Node) *Node {
 	fast := head
 
 	for fast != nil {
+
 		if fast.Next != nil {
 			fast = fast.Next.Next
 		} else {
@@ -20,6 +21,7 @@ func middleNode(head *Node) *Node {
 			break
 		}
 		slow = slow.Next
+
 	}
 
 	return slow

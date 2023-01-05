@@ -38,13 +38,14 @@ func Revert(src *Node) (new *Node) {
 	newNode := &Node{0, nil}
 
 	cursor := src
+
 	for cursor != nil {
 
-		q := cursor
+		p := cursor
 		cursor = cursor.next
 
-		q.next = newNode.next
-		newNode.next = q
+		p.next = newNode.next
+		newNode.next = p
 	}
 
 	return newNode.next

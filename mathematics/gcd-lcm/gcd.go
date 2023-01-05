@@ -2,25 +2,24 @@ package main
 
 // 最大公约数（greatest common divisor）
 
-// 穷举法：最大公约数
-func gcdNormal(x, y int) int {
+// // 穷举法：最大公约数
+// func gcdNormal(x, y int) int {
 
-	var n int
+// 	var n int
+// 	if x > y {
+// 		n = y
+// 	} else {
+// 		n = x
+// 	}
 
-	if x > y {
-		n = y
-	} else {
-		n = x
-	}
+// 	for i := n; i >= 1; i-- {
+// 		if x%i == 0 && y%i == 0 {
+// 			return i
+// 		}
+// 	}
 
-	for i := n; i >= 1; i-- {
-		if x%i == 0 && y%i == 0 {
-			return i
-		}
-	}
-
-	return 1
-}
+// 	return 1
+// }
 
 // 欧几里得 辗转相除法：
 // gcd(x,y) 表示 x 和 y 的最大公约数。进入运算时：x != 0, y != 0，
@@ -30,8 +29,7 @@ func gcdNormal(x, y int) int {
 
 // 证明：设 k = x/y，b = x%y  则：x = ky+b
 // 如果 n 能够同时整除 x 和 y，则 (y%n) = 0，(ky+b)%n = 0，则 b%n = 0，即 n 也同时能够整除 y 和 b。
-// 由上得出：同时能够整除 y 和 (b=x%y) 的数，
-// 也必然能够同时整除 x 和 y。
+// 由上得出：同时能够整除 y 和 (b=x%y) 的数，也必然能够同时整除 x 和 y。
 // 故而 gcd(x,y) = gcd(y,x%y)。
 // 当 (b = x%y) = 0，即 y 可以整除 x，这时的 y 也就是所求的最大公约数了。
 
